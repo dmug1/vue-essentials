@@ -1,6 +1,6 @@
 
 
-var data = {    
+/* var data = {    
     maximum: 99,
     products : [
      {
@@ -26,10 +26,20 @@ var data = {
        "image": "https://hplussport.com/wp-content/uploads/2016/12/unisex-thermal-vest_LYNDA_29944.jpg"
      }
     ]
-   };
+   }; */
    
    var app = new Vue({
     el: '#app',
-    data: data,
+    data: {
+      maximum: 99,
+      products: null
+    },
+    mounted: function() {
+      fetch('https://hplussport.com/api/products/order/price')
+      .then(response => response.json())
+      .then(data => {
+        this.products = data;
+      })
+    }
    });
    
