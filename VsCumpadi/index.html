@@ -25,6 +25,11 @@
   v-for="item in products"
   v-if="item.price<=Number(maximum)"
   >
+
+  <div class="col-1 m-auto">
+    <button class="btn btn-info">+</button>
+  </div>
+
    <div class="col-sm-4">
     <img class="img-fluid d-block" :src="item.image" :alt="item.name">
    </div>
