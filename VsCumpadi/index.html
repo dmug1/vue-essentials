@@ -11,14 +11,15 @@
 
 <div class="container" id="app">
 
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-light bg-light fixed-top"
+  v-if="cart.length>0">
   <div class="navbar-text ml-auto">
     <b>Cart:</b>
-    <span class="badge badge-pill badge-success"></span>
+    <span class="badge badge-pill badge-success">{{cart.length}}</span>
   </div>
 </nav> 
   
-  <div class="form-inline mr-auto">
+  <div class="form-inline mr-auto mt-5">
     <label class="font-wieght-bold mr-2" for="formMax">Max</label>
     <input type="text" id="forMax" class="form-control w-25" v-model="maximum">
   </div>
@@ -31,7 +32,8 @@
   >
 
   <div class="col-1 m-auto">
-    <button class="btn btn-info">+</button>
+    <button class="btn btn-info"
+    v-on:click="addItem(item)">+</button>
   </div>
 
    <div class="col-sm-4">
