@@ -11,20 +11,30 @@
 
 <div class="container" id="app">
 
-<nav class="navbar navbar-light bg-light fixed-top"
-  v-if="cart.length>0">
-  <div class="navbar-text ml-auto">
-    <b>Cart:</b>
-    <span class="badge badge-pill badge-success">{{cart.length}}</span>
+<nav class="navbar navbar-light fixed-top">
+  <div class="navbar-text ml-auto d-flex">
+    <button class="btn-sm btn-outiline-success"
+    @click="sliderStatus = !sliderStatus">
+      <i class="fas fa-dollar-sign"></i>
+    </button>
+    <div class="ml-2" v-if="cart.length>0">
+      <b>Cart:</b>
+      <span class="badge badge-pill badge-success">{{cart.length}}</span>
+    </div>
   </div>
 </nav> 
   
-  <div class="form-inline mr-auto mt-5">
-    <label class="font-wieght-bold mr-2" for="formMax">Max</label>
-    <input type="text" id="forMax" class="form-control w-25" v-model="maximum">
+  <h1>My shop</h1>
+
+  <div class="align-items-center" :class="sliderState">
+    <label :class="labelArr" for="formMax">Max</label>
+    <input type="text" id="forMax" class="form-control mx-2" 
+    :style="{'width': inputWidth, 'text-align':'center'}"
+     v-model="maximum">
+    <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
   </div>
   
-  <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+  
 
   <div class="row d-flex mb-3 align-items-center" 
   v-for="item in products"
@@ -47,7 +57,7 @@
   </div>
 </div>
 
-
+<script src="https://kit.fontawesome.com/9bc3962d27.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="app.js"></script>
 
