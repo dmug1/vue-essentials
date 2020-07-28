@@ -6,6 +6,10 @@
     <title>Some CloZes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="app.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
 </head>
 
 <body>
@@ -26,7 +30,9 @@
 </nav> 
   
   <h1>My shop</h1>
-<transition name="fade">
+<transition name="custom"
+  enter-active-class="animate__animated animate__bounceInRight"
+  leave-active-class="animate__animated animate__fadeOut">
 <div v-if="sliderStatus">
     <div class="align-items-center" :class="sliderState">
       <label :class="labelArr" for="formMax">Max</label>
@@ -39,11 +45,14 @@
 </transition>
   
   
-
+<transition-group name="custom" tag="div"
+  enter-active-class="animate__animated animate__lightSpeedInRight"
+  leave-active-class="animate__animated animate__lightSpeedOutRight">
   <div class="row d-flex mb-3 align-items-center" 
-  v-for="item in products"
+  v-for="item in products" :key="item.id"
   v-if="item.price<=Number(maximum)"
   >
+</transition-group>
 
   <div class="col-1 m-auto">
     <button class="btn btn-info"
