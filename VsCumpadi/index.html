@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Some CloZes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
@@ -25,14 +26,17 @@
 </nav> 
   
   <h1>My shop</h1>
-
-  <div class="align-items-center" :class="sliderState">
-    <label :class="labelArr" for="formMax">Max</label>
-    <input type="text" id="forMax" class="form-control mx-2" 
-    :style="{'width': inputWidth, 'text-align':'center'}"
-     v-model="maximum">
-    <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+<transition name="fade">
+<div v-if="sliderStatus">
+    <div class="align-items-center" :class="sliderState">
+      <label :class="labelArr" for="formMax">Max</label>
+      <input type="text" id="forMax" class="form-control mx-2" 
+      :style="{'width': inputWidth, 'text-align':'center'}"
+      v-model="maximum">
+      <input type="range" class="custom-range" min="0" max="200" v-model="maximum">
+    </div>
   </div>
+</transition>
   
   
 
