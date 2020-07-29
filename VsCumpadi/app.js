@@ -38,6 +38,11 @@
       products: null,
       cart:[]
     },
+    filters:{
+      currency: function (value) {
+        return '$' + Number.parseFloat(value).toFixed(2);
+      }
+    },
     computed:{
       sliderState: function(){
         return this.sliderStatus ? 'd-flex' : 'd-none'
