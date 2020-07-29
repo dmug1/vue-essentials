@@ -46,11 +46,13 @@
   
   
 <transition-group name="custom" tag="div"
-  enter-active-class="animate__animated animate__lightSpeedInRight"
-  leave-active-class="animate__animated animate__lightSpeedOutRight">
-  <div class="row d-flex mb-3 align-items-center" 
-  v-for="item in products" :key="item.id"
+  @beforeEnter="beforeEnter"
+  @enter="enter"
+  @leave="leave">
+  <div class="row d-none mb-3 align-items-center" 
+  v-for="(item, index) in products" :key="item.id"
   v-if="item.price<=Number(maximum)"
+  :data-index="index"
   >
 </transition-group>
 
