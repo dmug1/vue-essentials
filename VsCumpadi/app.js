@@ -28,6 +28,19 @@
     ]
    }; */
    
+
+   Vue.component('price',{
+      data:function(){
+        return {
+          prefix: '$',
+          value: 22.34,
+          precision: 2,
+        }
+      },
+      template: '<span> {{ this.prefix + Number.parseFloat(this.value).toFixed(this.precision)}} </span>'
+   });
+
+
    var app = new Vue({
     el: '#app',
     data: {
